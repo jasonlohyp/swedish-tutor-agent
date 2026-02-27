@@ -1,42 +1,64 @@
 # Swedish Language Tutor
 
-A simple terminal-based language tutor that helps you practice Swedish using the Gemini API.
+A powerful terminal-based language tutor that helps you practice Swedish using the Gemini API. Whether you want to practice your writing or test your vocabulary, this tutor provides instant, intelligent feedback.
 
 ## What it Does
-- **Grammar & Spelling Correction**: When you type in Swedish, the tutor provides corrections and explains mistakes in English.
-- **Support for Beginners**: If you write in English, the tutor responds in English and encourages you to try Swedish.
-- **Interactive Chat Loop**: Runs directly in your terminal for quick practice sessions.
+The app features two distinct practice modes to help you master Swedish:
 
-## Why I Built It
-Learning a new language can be intimidating, especially when you're worried about making mistakes. This project provides a low-pressure environment to practice Swedish with instant, helpful feedback from an AI tutor.
+### 1. Correction Mode
+* **Grammar & Spelling Correction**: Write freely in Swedish. The tutor will correct your mistakes and explain them in English.
+* **Bilingual Support**: If you write in English, the tutor will encourage you to try Swedish while providing helpful guidance.
+
+### 2. Quiz Mode
+* **Vocabulary Testing**: Test your knowledge of Swedish words and phrases.
+* **CEFR Difficulty Levels**: Choose the level that matches your skill:
+  * **A1 (Beginner)**: Basic phrases, introductions, and everyday survival vocabulary.
+  * **A2 (Elementary)**: Simple routine tasks and basic everyday information.
+  * **B1 (Intermediate)**: Main points in work, school, and travel situations.
+  * **B2 (Upper Intermediate)**: Fluent interaction and more complex technical discussions.
+  * **C1 (Advanced)**: Demanding texts, implicit meanings, and specialized vocabulary.
+* **Smart Feedback**: Gemini evaluates your translations (lenient with minor spelling) and provides correct answers when needed.
+* **Contextual Learning**: Get an example sentence in Swedish for every word you quiz on.
+* **Score Tracking**: Keep track of your accuracy throughout the session.
 
 ## Tech Stack
-- **Python**: Core application logic.
-- **Gemini API**: Powers the AI tutor using the `gemini-2.5-flash-lite` model.
-- **Google Antigravity**: Developed and refined using advanced AI agentic coding.
+* **Python**: Core logic.
+* **Gemini API**: Powers all AI interactions using the `gemini-2.5-flash-lite` model.
+* **google-genai**: Official Google Gemini SDK.
+* **python-dotenv**: For secure management of API keys.
 
-## How to Run
+## Setup & Running Locally
 
-### 1. Set up your API Key
-Copy the `.env.example` file to a new file named `.env` and add your Gemini API key:
+### 1. Clone the repository
+```bash
+git clone <repository-url>
+cd swedish-tutor-agent
+```
+
+### 2. Set up your API Key
+Copy the `.env.example` file to a new file named `.env`:
 ```bash
 cp .env.example .env
 ```
-Then edit `.env` to include your key:
+Then edit `.env` and add your [Gemini API Key](https://aistudio.google.com/app/apikey):
 ```text
 GEMINI_API_KEY="your_api_key_here"
 ```
-The app will automatically load this key using `python-dotenv`.
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 ```bash
-pip install google-genai
+pip install google-genai python-dotenv
 ```
 
-### 3. Start the App
+### 4. Start the App
 ```bash
 python app.py
 ```
 
-## Usage
-Type your messages in the prompt. To end the session, type `quit` or `exit`.
+## What's Coming Next
+* **Web UI**: A beautiful, modern interface for a better practice experience.
+* **Speech Mode**: Practice your pronunciation with voice-to-text and text-to-speech integration.
+* **Progress Tracking**: Persistent history of your quiz scores and learning journey.
+
+---
+*Developed with advanced agentic coding for modern language learners.*
