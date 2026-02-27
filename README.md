@@ -18,11 +18,15 @@ Learning a new language can be intimidating, especially when you're worried abou
 ## How to Run
 
 ### 1. Set up your API Key
-Create a `.env` file in the root of the project and add your Gemini API key:
+Copy the `.env.example` file to a new file named `.env` and add your Gemini API key:
+```bash
+cp .env.example .env
+```
+Then edit `.env` to include your key:
 ```text
 GEMINI_API_KEY="your_api_key_here"
 ```
-The app will automatically load this key from the `.env` file using `python-dotenv`.
+The app will automatically load this key using `python-dotenv`.
 
 ### 2. Install Dependencies
 ```bash
