@@ -18,12 +18,11 @@ Learning a new language can be intimidating, especially when you're worried abou
 ## How to Run
 
 ### 1. Set up your API Key
-Ensure you have a Gemini API key. Set it as an environment variable:
-
-**Windows (PowerShell):**
-```powershell
-$env:GEMINI_API_KEY = "your_api_key_here"
+Create a `.env` file in the root of the project and add your Gemini API key:
+```text
+GEMINI_API_KEY="your_api_key_here"
 ```
+The app will automatically load this key from the `.env` file using `python-dotenv`.
 
 ### 2. Install Dependencies
 ```bash

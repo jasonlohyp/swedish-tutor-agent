@@ -1,8 +1,12 @@
 import os
 import sys
+from dotenv import load_dotenv
 from google import genai
 
 def main():
+    # Load environment variables from .env file
+    load_dotenv()
+    
     # The API key should be read from an environment variable called GEMINI_API_KEY
     api_key = os.environ.get("GEMINI_API_KEY")
     
