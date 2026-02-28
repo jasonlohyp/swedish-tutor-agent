@@ -47,12 +47,12 @@ GEMINI_API_KEY="your_api_key_here"
 
 ### 3. Install Dependencies
 ```bash
-pip install google-genai python-dotenv
+pip install google-genai python-dotenv streamlit
 ```
 
 ### 4. Start the App
 ```bash
-python app.py
+python -m streamlit run streamlit_app.py
 ```
 
 ## What's Coming Next
