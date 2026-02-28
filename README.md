@@ -119,6 +119,52 @@ python app/app.py
 
 ---
 
+## Cloud Run Deployment
+
+Infrastructure is managed via a [reusable Terraform module](https://github.com/jasonlohyp/terraform-modules/tree/main/cloud-run).
+
+### Prerequisites
+- [Terraform](https://developer.hashicorp.com/terraform/install) >= 1.0
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+- GCP project with billing enabled
+
+### Deploy
+
+**1. Store your Gemini API key in Secret Manager**
+```bash
+gcloud secrets create GEMINI_API_KEY --project=YOUR-PROJECT-ID
+gcloud secrets versions add GEMINI_API_KEY --data-file=- --project=YOUR-PROJECT-ID
+```
+
+**2. Build and push the Docker image**
+```bash
+gcloud auth configure-docker europe-west1-docker.pkg.dev
+docker build -t europe-west1-docker.pkg.dev/YOUR-PROJECT-ID/swedish-tutor-agent/app:latest ./app
+docker push europe-west1-docker.pkg.dev/YOUR-PROJECT-ID/swedish-tutor-agent/app:latest
+```
+
+**3. Deploy with Terraform**
+```bash
+cd infra
+cp terraform.tfvars.example terraform.tfvars
+# Edit terraform.tfvars with your project ID and image URL
+terraform init
+terraform apply
+```
+
+**4. Get your live URL**
+```bash
+terraform output service_url
+```
+
+### Security
+- API key is stored in **GCP Secret Manager** — never passed as a plain environment variable
+- Cloud Run service has `max_instances = 1` to prevent runaway costs
+- Container scales to zero when idle — no cost when not in use
+
+---
+
 ## Roadmap
 
 - [x] Correction mode with grammar feedback
