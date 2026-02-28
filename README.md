@@ -1,25 +1,25 @@
 # 🇸🇪 Swedish Tutor Agent
 
-An AI-powered Swedish language tutor built with Google Gemini API. Practice Swedish through real-time grammar correction and CEFR-aligned vocabulary quizzes — in a clean, Gemini-inspired web interface.
+An AI-powered Swedish language tutor built with Google Gemini API. Practice Swedish through real time grammar correction and CEFR vocabulary quizzes in a clean, Gemini-inspired web interface.
 
 > Built as a personal learning project to explore agentic AI development using Google's Gemini API and Google Antigravity IDE.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔤 Correction Mode
+### Correction Mode
 - Write anything in Swedish and get instant grammar and spelling corrections
 - Explanations in English so you understand *why* something is wrong
-- Bilingual support — write in English and get encouraged to try in Swedish
+- Bilingual support. Write in English and get encouraged to try in Swedish
 
-### 🧠 Quiz Mode
+### Quiz Mode
 - Vocabulary quizzes aligned to the **CEFR language scale** (A1 → C1)
 - Gemini generates random words dynamically — never repeats within a session
 - Each answer includes an example sentence in Swedish with English translation below
 - Live score tracking in the sidebar
 
-### 📊 CEFR Difficulty Levels
+### CEFR Difficulty Levels
 | Level | Name | Description |
 |---|---|---|
 | A1 | Beginner | Basic phrases, introductions, everyday survival vocabulary |
@@ -30,19 +30,19 @@ An AI-powered Swedish language tutor built with Google Gemini API. Practice Swed
 
 ---
 
-## 🖥️ Web Interface
+## Web Interface
 
 Clean, Gemini-inspired dark theme built with Streamlit:
 - Sidebar with mode selector, CEFR level dropdown, and live score
-- Chat area with left-aligned tutor messages and right-aligned user bubbles
+- Chat area with left aligned tutor messages and right aligned user bubbles
 - Fixed input bar at the bottom
 - Clear chat button to reset sessions
 
 ---
 
-## 🏗️ Architecture
+## Codebase
 
-The codebase is modular — AI logic is decoupled from the UI:
+The codebase is modular. AI logic is decoupled from the UI:
 
 ```
 swedish-tutor-agent/
@@ -54,11 +54,11 @@ swedish-tutor-agent/
 └── README.md
 ```
 
-Both `streamlit_app.py` and `app.py` share the same AI core — changes to tutor logic only need to be made once.
+Both `streamlit_app.py` and `app.py` share the same AI core. Changes to tutor logic only need to be made once.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -71,7 +71,7 @@ Both `streamlit_app.py` and `app.py` share the same AI core — changes to tutor
 
 ---
 
-## 🚀 Setup & Running Locally
+## Setup & Running Locally
 
 ### 1. Clone the repository
 ```bash
@@ -105,7 +105,7 @@ python app.py
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Correction mode with grammar feedback
 - [x] Quiz mode with CEFR difficulty levels
