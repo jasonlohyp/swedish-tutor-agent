@@ -113,9 +113,8 @@ python app.py
 - [x] Example sentences for every quiz word
 - [x] Web UI with Gemini-inspired dark theme
 - [ ] Speech mode — speak Swedish, app checks pronunciation
-- [ ] Progress tracking — persistent scores across sessions
 - [ ] Deploy to Cloud Run — live public URL
 
 ---
 
-*Built with Google Antigravity Gemini API*
+*Built with Claude, Google Antigravity, and Gemini API*
