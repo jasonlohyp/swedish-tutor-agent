@@ -1,64 +1,129 @@
-# Swedish Language Tutor
+# 🇸🇪 Swedish Tutor Agent
 
-A powerful terminal-based language tutor that helps you practice Swedish using the Gemini API. Whether you want to practice your writing or test your vocabulary, this tutor provides instant, intelligent feedback.
+An AI-powered Swedish language tutor built with Google Gemini API. Practice Swedish through real-time grammar correction and CEFR-aligned vocabulary quizzes — in a clean, Gemini-inspired web interface.
 
-## What it Does
-The app features two distinct practice modes to help you master Swedish:
+> Built as a personal learning project to explore agentic AI development using Google's Gemini API and Google Antigravity IDE.
 
-### 1. Correction Mode
-* **Grammar & Spelling Correction**: Write freely in Swedish. The tutor will correct your mistakes and explain them in English.
-* **Bilingual Support**: If you write in English, the tutor will encourage you to try Swedish while providing helpful guidance.
+---
 
-### 2. Quiz Mode
-* **Vocabulary Testing**: Test your knowledge of Swedish words and phrases.
-* **CEFR Difficulty Levels**: Choose the level that matches your skill:
-  * **A1 (Beginner)**: Basic phrases, introductions, and everyday survival vocabulary.
-  * **A2 (Elementary)**: Simple routine tasks and basic everyday information.
-  * **B1 (Intermediate)**: Main points in work, school, and travel situations.
-  * **B2 (Upper Intermediate)**: Fluent interaction and more complex technical discussions.
-  * **C1 (Advanced)**: Demanding texts, implicit meanings, and specialized vocabulary.
-* **Smart Feedback**: Gemini evaluates your translations (lenient with minor spelling) and provides correct answers when needed.
-* **Contextual Learning**: Get an example sentence in Swedish for every word you quiz on.
-* **Score Tracking**: Keep track of your accuracy throughout the session.
+## ✨ Features
 
-## Tech Stack
-* **Python**: Core logic.
-* **Gemini API**: Powers all AI interactions using the `gemini-2.5-flash-lite` model.
-* **google-genai**: Official Google Gemini SDK.
-* **python-dotenv**: For secure management of API keys.
+### 🔤 Correction Mode
+- Write anything in Swedish and get instant grammar and spelling corrections
+- Explanations in English so you understand *why* something is wrong
+- Bilingual support — write in English and get encouraged to try in Swedish
 
-## Setup & Running Locally
+### 🧠 Quiz Mode
+- Vocabulary quizzes aligned to the **CEFR language scale** (A1 → C1)
+- Gemini generates random words dynamically — never repeats within a session
+- Each answer includes an example sentence in Swedish with English translation below
+- Live score tracking in the sidebar
+
+### 📊 CEFR Difficulty Levels
+| Level | Name | Description |
+|---|---|---|
+| A1 | Beginner | Basic phrases, introductions, everyday survival vocabulary |
+| A2 | Elementary | Simple routine tasks, basic everyday information |
+| B1 | Intermediate | Main points in work, school, and travel situations |
+| B2 | Upper Intermediate | Fluent interaction, complex texts, technical discussions |
+| C1 | Advanced | Demanding texts, implicit meanings, specialized vocabulary |
+
+---
+
+## 🖥️ Web Interface
+
+Clean, Gemini-inspired dark theme built with Streamlit:
+- Sidebar with mode selector, CEFR level dropdown, and live score
+- Chat area with left-aligned tutor messages and right-aligned user bubbles
+- Fixed input bar at the bottom
+- Clear chat button to reset sessions
+
+---
+
+## 🏗️ Architecture
+
+The codebase is modular — AI logic is decoupled from the UI:
+
+```
+swedish-tutor-agent/
+├── tutor.py            ← All Gemini API logic (correction, quiz, CEFR prompts)
+├── streamlit_app.py    ← Web UI (imports from tutor.py)
+├── app.py              ← Terminal UI (imports from tutor.py)
+├── .env                ← Your API key (never committed)
+├── .env.example        ← Template for setup
+└── README.md
+```
+
+Both `streamlit_app.py` and `app.py` share the same AI core — changes to tutor logic only need to be made once.
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Core language |
+| Google Gemini API (`gemini-2.5-flash-lite`) | AI language model |
+| google-genai | Official Google Gemini SDK |
+| Streamlit | Web interface |
+| python-dotenv | Secure API key management |
+| Google Antigravity | Agentic IDE used for development |
+
+---
+
+## 🚀 Setup & Running Locally
 
 ### 1. Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/jasonlohyp/swedish-tutor-agent.git
 cd swedish-tutor-agent
 ```
 
-### 2. Set up your API Key
-Copy the `.env.example` file to a new file named `.env`:
+### 2. Set up your API key
 ```bash
 cp .env.example .env
 ```
-Then edit `.env` and add your [Gemini API Key](https://aistudio.google.com/app/apikey):
-```text
-GEMINI_API_KEY="your_api_key_here"
+Edit `.env` and add your [Gemini API key](https://aistudio.google.com/apikey):
+```
+GEMINI_API_KEY=your_api_key_here
 ```
 
-### 3. Install Dependencies
+### 3. Install dependencies
 ```bash
 pip install google-genai python-dotenv streamlit
 ```
 
-### 4. Start the App
+### 4. Run the web app
 ```bash
 python -m streamlit run streamlit_app.py
 ```
 
-## What's Coming Next
-* **Web UI**: A beautiful, modern interface for a better practice experience.
-* **Speech Mode**: Practice your pronunciation with voice-to-text and text-to-speech integration.
-* **Progress Tracking**: Persistent history of your quiz scores and learning journey.
+Or run the terminal version:
+```bash
+python app.py
+```
 
 ---
-*Developed with advanced agentic coding for modern language learners.*
+
+## 🗺️ Roadmap
+
+- [x] Correction mode with grammar feedback
+- [x] Quiz mode with CEFR difficulty levels
+- [x] Dynamic word generation via Gemini (no hardcoded word lists)
+- [x] Example sentences for every quiz word
+- [x] Web UI with Gemini-inspired dark theme
+- [ ] Speech mode — speak Swedish, app checks pronunciation
+- [ ] Progress tracking — persistent scores across sessions
+- [ ] Deploy to Cloud Run — live public URL
+
+---
+
+## 💡 About This Project
+
+This project was built as part of my journey transitioning into Technical AI Product Management. I'm a Product Manager with 7 years of experience in GCP governance and SaaS products, now building hands-on AI projects to complement my background.
+
+The Swedish tutor made sense as a first project — I'm learning Swedish while living in Sweden, so I'm the primary user. Building something you actually need makes for better product decisions.
+
+---
+
+*Built with [Google Antigravity](https://antigravity.google) and [Gemini API](https://aistudio.google.com)*
