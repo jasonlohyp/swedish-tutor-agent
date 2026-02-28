@@ -175,5 +175,4 @@ terraform output service_url
 - [x] Modular architecture — AI logic decoupled from UI
 - [x] Infrastructure as Code with reusable Terraform module
 - [x] Deploy to Cloud Run — live public URL
-- [ ] Speech mode — speak Swedish, app checks pronunciation
 
