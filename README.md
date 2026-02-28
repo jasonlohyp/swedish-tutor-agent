@@ -118,12 +118,4 @@ python app.py
 
 ---
 
-## 💡 About This Project
-
-This project was built as part of my journey transitioning into Technical AI Product Management. I'm a Product Manager with 7 years of experience in GCP governance and SaaS products, now building hands-on AI projects to complement my background.
-
-The Swedish tutor made sense as a first project — I'm learning Swedish while living in Sweden, so I'm the primary user. Building something you actually need makes for better product decisions.
-
----
-
-*Built with [Google Antigravity](https://antigravity.google) and [Gemini API](https://aistudio.google.com)*
+*Built with Google Antigravity Gemini API*
