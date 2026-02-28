@@ -21,3 +21,10 @@ env/
 build/
 dist/
 *.egg-info/
+
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfvars
+*.tfstate
+*.tfstate.backup

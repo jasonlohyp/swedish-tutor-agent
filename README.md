@@ -46,14 +46,27 @@ The codebase is modular. AI logic is decoupled from the UI:
 
 ```
 swedish-tutor-agent/
-├── tutor.py            ← All Gemini API logic (correction, quiz, CEFR prompts)
-├── streamlit_app.py    ← Web UI (imports from tutor.py)
-├── app.py              ← Terminal UI (imports from tutor.py)
-├── .env.example        ← Template for setup
-└── README.md           ← App documentation
+├── app/                    ← Application code
+│   ├── tutor.py            ← All Gemini API logic (correction, quiz, CEFR prompts)
+│   ├── streamlit_app.py    ← Web UI (imports from tutor.py)
+│   ├── app.py              ← Terminal UI (imports from tutor.py)
+│   ├── requirements.txt    ← Python dependencies
+│   └── Dockerfile          ← Container definition for Cloud Run
+│
+├── infra/                  ← Infrastructure as Code
+│   ├── main.tf             ← Calls reusable Cloud Run Terraform module
+│   ├── variables.tf        ← Input variables (project ID, region, etc)
+│   ├── outputs.tf          ← Outputs (live URL)
+│   └── terraform.tfvars.example ← Template for your values (gitignored)
+│
+├── .env.example            ← Template for local development API key
+├── .gitignore
+└── README.md
 ```
 
 Both `streamlit_app.py` and `app.py` share the same AI core. Changes to tutor logic only need to be made once.
+
+Infrastructure is managed via a [reusable Terraform module](https://github.com/jasonlohyp/terraform-modules/tree/main/cloud-run) — any new project can reuse the same Cloud Run deployment pattern.
 
 ---
 
@@ -65,6 +78,8 @@ Both `streamlit_app.py` and `app.py` share the same AI core. Changes to tutor lo
 | Google Gemini API (`gemini-2.5-flash-lite`) | AI language model |
 | google-genai | Official Google Gemini SDK |
 | Streamlit | Web interface |
+| Terraform | Infrastructure as Code for Cloud Run deployment |
+| Docker | Containerisation |
 | python-dotenv | Secure API key management |
 | Google Antigravity | Agentic IDE used for development |
 
@@ -94,12 +109,12 @@ pip install google-genai python-dotenv streamlit
 
 ### 4. Run the web app
 ```bash
-python -m streamlit run streamlit_app.py
+python -m streamlit run app/streamlit_app.py
 ```
 
 Or run the terminal version:
 ```bash
-python app.py
+python app/app.py
 ```
 
 ---
@@ -111,6 +126,8 @@ python app.py
 - [x] Dynamic word generation via Gemini (no hardcoded word lists)
 - [x] Example sentences for every quiz word
 - [x] Web UI with Gemini-inspired dark theme
-- [ ] Speech mode — speak Swedish, app checks pronunciation
+- [x] Modular architecture — AI logic decoupled from UI
+- [x] Infrastructure as Code with reusable Terraform module
 - [ ] Deploy to Cloud Run — live public URL
+- [ ] Speech mode — speak Swedish, app checks pronunciation
 
