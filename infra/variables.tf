@@ -6,16 +6,10 @@ variable "project_id" {
 variable "region" {
   description = "The GCP region"
   type        = string
-  default     = "europe-north1"
+  default     = "europe-west1"
 }
 
 variable "container_image" {
   description = "The Docker image to deploy"
   type        = string
-}
-
-variable "gemini_api_key" {
-  description = "API key for Gemini"
-  type        = string
-  sensitive   = true
 }

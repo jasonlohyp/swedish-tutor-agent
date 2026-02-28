@@ -128,6 +128,6 @@ python app/app.py
 - [x] Web UI with Gemini-inspired dark theme
 - [x] Modular architecture — AI logic decoupled from UI
 - [x] Infrastructure as Code with reusable Terraform module
-- [ ] Deploy to Cloud Run — live public URL
+- [x] Deploy to Cloud Run — live public URL
 - [ ] Speech mode — speak Swedish, app checks pronunciation
 
