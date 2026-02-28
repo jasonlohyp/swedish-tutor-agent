@@ -40,7 +40,7 @@ Clean, Gemini-inspired dark theme built with Streamlit:
 
 ---
 
-## Codebase
+## Repo Structure
 
 The codebase is modular. AI logic is decoupled from the UI:
 
@@ -49,9 +49,8 @@ swedish-tutor-agent/
 ├── tutor.py            ← All Gemini API logic (correction, quiz, CEFR prompts)
 ├── streamlit_app.py    ← Web UI (imports from tutor.py)
 ├── app.py              ← Terminal UI (imports from tutor.py)
-├── .env                ← Your API key (never committed)
 ├── .env.example        ← Template for setup
-└── README.md
+└── README.md           ← App documentation
 ```
 
 Both `streamlit_app.py` and `app.py` share the same AI core. Changes to tutor logic only need to be made once.
@@ -115,6 +114,3 @@ python app.py
 - [ ] Speech mode — speak Swedish, app checks pronunciation
 - [ ] Deploy to Cloud Run — live public URL
 
----
-
-*Built with Claude, Google Antigravity, and Gemini API*
